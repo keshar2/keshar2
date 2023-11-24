@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Video Player</title>
+
+</head>
+
+<body>
+  <div id="video-container">
+    <video id="video" src="player.mp4" controls autoplay></video>
+  </div>
+  <div class="headline">
+    <h2>Video player</h2>
+    
+    <script>
+    const vElement = document.getElementById('video')
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'f') {
+        if (document.fullscreenElement) {
+          document.exitFullscreen()
+        }else{
+          vElement.requestFullscreen()
+        }
+      } else if (event.key === ' ') {
+        if (vElement.paused) {
+          vElement.play();
+        } else {
+          vElement.pause();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
